@@ -1,0 +1,80 @@
+<mvc:View controllerName="zcrud.zcrud.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Airline">
+					<content>
+						<Panel id="__panel1">
+							
+				<Button text="TableView" id="but1"  press="ontable" width="100px"/>	
+			<Button text="ListView" id="but2"  press="onlist" width="100px"/>	
+			<!--<Button text="Open Dialog" id="but3" press="handleSelectDialogPress" width="100px"/>-->
+				<Input
+				id="productInput"
+				type="Text"
+				value="Search"
+				placeholder="Search ..."
+				showValueHelp="true"
+				valueHelpOnly="true"
+				valueHelpRequest="handleValueHelp"
+				class="sapUiSmallMarginBottom"
+				width="15rem"/>
+					<Table id="producttable" width="50%"  items="{/scarEntitySet}" visible="false">
+		 			<columns>
+			<Column
+				width="12em">
+				<Text text="Carrid" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Carrname" />
+			</Column>
+				<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Currcode" />
+			</Column>
+			</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{Carrid}"/>
+									<Text text="{Carrname}"/>
+									<Text text="{Currcode}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>	
+					<content>
+							<List id="List" items="{/scarEntitySet}" visible="false" > 
+									<ObjectListItem type="Navigation" press="onListItemPress" title="{Carrid}" number="{Carrname}" numberUnit="{Currcode}"/>
+								</List>
+						
+					</content>	
+							
+						</Panel>
+						<Panel id="__panel0" headerText="Airline Table Details">
+							<content>
+								<Label text="AirlineID" width="100%" id="__label0"/>
+								<Input width="100%" id="__input0"/>
+							
+								<Button text="{i18n>read}" width="100px" id="__button2" press="onRead"/>
+									<Button text="insert" width="100px" id="__button1" press="onInsert"/>
+										<Button text="update" width="100px" id="__button3" press="onUpdate"/>
+											<Button text="delete" width="100px" id="__button4" press="onDelete"/>
+							
+								<Label text="AirlineID" width="100%" id="__label8"/>
+								<Input width="100%" value="{fareModel>/Carrid}" id="input5"/>
+								<Label text="Airline Name" width="100%" id="__label9"/>
+								<Input width="100%" value="{fareModel>/Carrname}" id="input6"/>
+								<Label text="Currency" width="100%" id="__label3"/>
+								<Input width="100%" value="{fareModel>/Currcode}" id="input7"/>
+							</content>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

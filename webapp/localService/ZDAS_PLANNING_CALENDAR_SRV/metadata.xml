@@ -1,0 +1,52 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZDAS_PLANNING_CALENDAR_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="das_shipping_points" sap:content-version="1">
+				<Key><PropertyRef Name="DbKey"/></Key><Property Name="DbKey" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="NodeID" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="ShippingPoint" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Source Location"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="DockId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Dock ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="AppointmentsSet" Relationship="ZDAS_PLANNING_CALENDAR_SRV.ShipppingToAppointments"
+					FromRole="FromRole_ShipppingToAppointments" ToRole="ToRole_ShipppingToAppointments"/><NavigationProperty Name="PeopleSet" Relationship="ZDAS_PLANNING_CALENDAR_SRV.ShipppingToPeople" FromRole="FromRole_ShipppingToPeople"
+					ToRole="ToRole_ShipppingToPeople"/></EntityType>
+			<EntityType Name="Appointments" sap:content-version="1">
+				<Key><PropertyRef Name="Startdate"/></Key><Property Name="Startdate" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Enddate" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Icon" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tentative" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Headers" sap:content-version="1">
+				<Key><PropertyRef Name="Startdate"/></Key><Property Name="Startdate" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Enddate" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Icon" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="People" sap:content-version="1">
+				<Key><PropertyRef Name="Pic"/></Key><Property Name="Pic" Type="Edm.String" Nullable="false" MaxLength="132" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Char" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="das_plan_calendar_details" sap:content-version="1">
+				<Key><PropertyRef Name="Startdate"/></Key><Property Name="Startdate" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="ShipppingToAppointments" sap:content-version="1"><End Type="ZDAS_PLANNING_CALENDAR_SRV.das_shipping_points" Multiplicity="0..1" Role="FromRole_ShipppingToAppointments"/><End Type="ZDAS_PLANNING_CALENDAR_SRV.Appointments" Multiplicity="*" Role="ToRole_ShipppingToAppointments"/></Association>
+			<Association Name="ShipppingToPeople" sap:content-version="1"><End Type="ZDAS_PLANNING_CALENDAR_SRV.das_shipping_points" Multiplicity="1" Role="FromRole_ShipppingToPeople"/><End Type="ZDAS_PLANNING_CALENDAR_SRV.People" Multiplicity="*" Role="ToRole_ShipppingToPeople"/></Association>
+			<EntityContainer Name="ZDAS_PLANNING_CALENDAR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="das_shipping_pointsSet" EntityType="ZDAS_PLANNING_CALENDAR_SRV.das_shipping_points" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="AppointmentsSet" EntityType="ZDAS_PLANNING_CALENDAR_SRV.Appointments" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="HeadersSet" EntityType="ZDAS_PLANNING_CALENDAR_SRV.Headers" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="PeopleSet" EntityType="ZDAS_PLANNING_CALENDAR_SRV.People" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="das_plan_calendar_detailsSet" EntityType="ZDAS_PLANNING_CALENDAR_SRV.das_plan_calendar_details" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="ShipppingToAppointmentsSet" Association="ZDAS_PLANNING_CALENDAR_SRV.ShipppingToAppointments" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="das_shipping_pointsSet" Role="FromRole_ShipppingToAppointments"/><End EntitySet="AppointmentsSet" Role="ToRole_ShipppingToAppointments"/></AssociationSet>
+				<AssociationSet Name="ShipppingToPeopleSet" Association="ZDAS_PLANNING_CALENDAR_SRV.ShipppingToPeople" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="das_shipping_pointsSet" Role="FromRole_ShipppingToPeople"/><End EntitySet="PeopleSet" Role="ToRole_ShipppingToPeople"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="http://vm2105.sapls.local:8000/sap/opu/odata/sap/ZDAS_PLANNING_CALENDAR_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="http://vm2105.sapls.local:8000/sap/opu/odata/sap/ZDAS_PLANNING_CALENDAR_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

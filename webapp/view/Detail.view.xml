@@ -1,0 +1,20 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="zcrud.zcrud.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+		
+						<Page title="Detail Page"
+	      showNavButton="true"
+	      navButtonPress="handleNavButtonPress" >
+		<VBox>
+		
+			<Text text="{Carrid}" />
+			<Text text="{Carrname}" />
+			<Text text="{Currcode}" />
+		
+		</VBox>
+	</Page>
+			
+		</pages>
+	</App>
+</mvc:View>
