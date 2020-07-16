@@ -79,7 +79,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			oModel.update("/scarEntitySet('" + oCust1 + "')", postData, {
 				// oModel.update("/scarEntitySet", postData, {
 				success: function (odata,response) {
-					MessageToast.show("Record Updated Successfully");
+					MessageToast.show("Record Updated Successfully1");
 
 				},
 				error: function (Error) {
