@@ -31,7 +31,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 		ontable: function () {
 			var otext = this1;
-			otext.byId("producttable").setVisible(true);
+			otext.byId("producttable1").setVisible(true);
 			otext.byId("List").setVisible(false);
 			
 		},
