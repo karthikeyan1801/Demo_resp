@@ -15,7 +15,7 @@ _onRouteMatched : function (oEvent) {
   oArgs = oEvent.getParameter("arguments");
   oView = this.getView();
   oView.bindElement({
-    path : "/scarEntitySet('" + oArgs.Carrid + "')",
+    path : "/scarEntitySet('" + oArgs.Carrid1 + "')",
     events : {
       dataRequested: function () {
         oView.setBusy(true);
